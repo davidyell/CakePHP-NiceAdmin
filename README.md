@@ -16,7 +16,6 @@ Helper for replacing a Status column in an index view with a nice coloured label
 Code is hosted on [Github.com](http://www.github.com/).
 
 ###Download as a zip
-![Zip button](http://i.imgur.com/acDZq.png)  
 Simply hit at the top of the page and extract the archive into `app/Plugin/NiceAdmin`  
 
 ###Submodule
@@ -42,27 +41,28 @@ public $helpers = array(
 		);
 ```
 Once the helpers are loaded you can use them to make your admin index pages look nice and spangly.  
+[More on using Helpers in the CakePHP book](http://book.cakephp.org/2.0/en/views/helpers.html)  
 
 ###ActionButtons Helper
-Then you can output either buttons or icons depending on which you need.  
+You can output either buttons or icons depending on which you need.  
 `echo $this->Actions->actionButtons($var['Foo']['id']);`  
-where `$id` is the id of the item you want buttons for. If you want to use icons call,  
 `echo $this->Actions->actionIcons($var['Foo']['id']);`  
-The helper will output all three buttons. 'View', 'Edit' and 'Delete'.
+Where `$id` is the id of the item you want buttons for. The helper will output all three buttons. 'View', 'Edit' and 'Delete'.
 
-````html
+```
 <td class="actions">
 	<?php echo $this->Actions->actionButtons($var['Foo']['id']);?>
 </td>
-````
+```
 
 ###StatusLights Helper
 This will convert a status link into a nice visually identifiable label.   
-````html
+
+```
 <td>
 	<?php echo $this->StatusLights->status($var['Foo']['id']) ?>
 </td>
-````
+```
 
 ##What's it look like?
 ![Table row](http://i.imgur.com/2ZrVo.png)
