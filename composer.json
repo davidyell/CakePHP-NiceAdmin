@@ -1,0 +1,14 @@
+{
+    "name": "davidyell/nice-admin",
+    "type": "cakephp-plugin",
+    "description": "A roll up plugin of various bits to improve the look of admin areas index view.",
+    "authors": [
+        {
+            "name": "David Yell",
+            "email": "neon1024@gmail.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "*"
+    }
+}
