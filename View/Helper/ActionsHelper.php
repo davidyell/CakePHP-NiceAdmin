@@ -22,7 +22,7 @@ class ActionsHelper extends AppHelper{
     public function actions($id, $options = array('v','e','d'), $type = 'buttons'){
         $html = '';
 
-// View button
+        // View button
         if(isset($options['v'])){
             if($type == 'icons'){
                 $html .= $this->Html->image('/action_buttons/img/view.png', array('url'=>array('action' => 'view', $id),'alt'=>'View','title'=>'View'));
@@ -31,7 +31,7 @@ class ActionsHelper extends AppHelper{
             }
         }
 
-// Edit button
+        // Edit button
         if(isset($options['e'])){
             if($type == 'icons'){
                 $html .= $this->Html->image('/action_buttons/img/edit.png', array('url'=>array('action' => 'edit', $id),'alt'=>'Edit','title'=>'Edit'));
@@ -40,7 +40,7 @@ class ActionsHelper extends AppHelper{
             }
         }
 
-// Delete button
+        // Delete button
         if(isset($options['d'])){
             if($type == 'icons'){
                 $html .= $this->Form->postLink($this->Html->image('/action_buttons/img/delete.png', array('alt'=>'Delete','title'=>'Delete')), array('action' => 'delete', $id), array('escape'=>false), __('Are you sure you want to delete # %s?', $id));

@@ -9,22 +9,48 @@ App::uses('AppHelper','View/Helper');
 class StatusLightsHelper extends AppHelper{
 
 /**
- * Will intepret a status and return a matching label
- * @param int $state The status_id
- * @return string Label
+ * Include the helpers we'll need to create our output
+ * @var array
  */
-    public function status($state){
-        switch($state){
-            case 1: // Live
-                return "<span class='label label-success'>Live</span>";
-                break;
-            case 2: // Inactive
-                return "<span class='label label-inverse'>Inactive</span>";
-                break;
-            case 3: // Deleted
-                return "<span class='label'>Deleted</span>";
-                break;
-        }
+    public $helpers = array('Html');
+
+/**
+ * Settings for the helper. Consists of id => array(label, class). Id of the item, label to be displayed, and the class to use
+ * @var array
+ */
+    public $settings = array(
+        1 => array(
+            'label'=>'Live',
+            'class'=>'label label-success'
+        ),
+        2 => array(
+            'label'=>'Inactive',
+            'class'=>'label label-inverse'
+        ),
+        3 => array(
+            'label'=>'Deleted',
+            'class'=>'label'
+        )
+    );
+
+/**
+ * Construct the helper and assign the passed settings
+ * @param View $view
+ * @param array $settings
+ */
+    public function __construct(View $view, $settings = array()){
+        parent::__construct($view);
+
+        $this->settings = $settings;
+    }
+
+/**
+ * Will intepret a status and return a matching label
+ * @param int $id The status_id
+ * @return string Html label
+ */
+    public function status($id){
+        return $this->Html->tag('span', $this->settings[$id]['label'], array('class'=>$this->settings[$id]['class']));
     }
 
 }
