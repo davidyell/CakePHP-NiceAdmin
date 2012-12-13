@@ -55,7 +55,8 @@ public $helpers = array(
         )
     ),
 );
-```
+```  
+The example here replicates the default settings in the helper. So if you are happy with the defaults, you don't need to pass these options in.  
 ###ActionButtons
 ```php
 public $helpers = array(
@@ -66,16 +67,13 @@ Once the helpers are loaded you can use them to make your admin index pages look
 [More on using Helpers in the CakePHP book](http://book.cakephp.org/2.0/en/views/helpers.html)  
 
 ###ActionButtons Helper
-You can output either buttons or icons depending on which you need.  
-`echo $this->Actions->actionButtons($var['Foo']['id']);`  
-`echo $this->Actions->actionIcons($var['Foo']['id']);`  
-Where `$id` is the id of the item you want buttons for. The helper will output all three buttons. 'View', 'Edit' and 'Delete'.
-
+You can output either buttons or icons depending on which you need. The helper will, by default, output all three links as buttons.  
+Passing in an array of buttons you want to ouput as `v`,`e` and/or `d`. For 'View', 'Edit', and 'Delete'. The last option is either `icons` or `buttons`.  
 ```
 <td class="actions">
-	<?php echo $this->Actions->actionButtons($var['Foo']['id']);?>
+	<?php echo $this->Actions->actions($var['Foo']['id'], array('e','d'), 'icons');?>
 </td>
-```
+```  
 
 ###StatusLights Helper
 This will convert a status link into a nice visually identifiable label.   

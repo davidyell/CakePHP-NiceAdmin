@@ -23,27 +23,27 @@ class ActionsHelper extends AppHelper{
         $html = '';
 
         // View button
-        if(isset($options['v'])){
+        if(in_array('v', $options)){
             if($type == 'icons'){
-                $html .= $this->Html->image('/action_buttons/img/view.png', array('url'=>array('action' => 'view', $id),'alt'=>'View','title'=>'View'));
+                $html .= $this->Html->image('/nice_admin/img/view.png', array('url'=>array('action' => 'view', $id),'alt'=>'View','title'=>'View'));
             }else{
                 $html .= $this->Html->link(__('View'), array('action' => 'view', $id), array('class'=>'btn btn-small'));
             }
         }
 
         // Edit button
-        if(isset($options['e'])){
+        if(in_array('e', $options)){
             if($type == 'icons'){
-                $html .= $this->Html->image('/action_buttons/img/edit.png', array('url'=>array('action' => 'edit', $id),'alt'=>'Edit','title'=>'Edit'));
+                $html .= $this->Html->image('/nice_admin/img/edit.png', array('url'=>array('action' => 'edit', $id),'alt'=>'Edit','title'=>'Edit'));
             }else{
                 $html .= $this->Html->link(__('Edit'), array('action' => 'edit', $id), array('class'=>'btn btn-small'));
             }
         }
 
         // Delete button
-        if(isset($options['d'])){
+        if(in_array('d', $options)){
             if($type == 'icons'){
-                $html .= $this->Form->postLink($this->Html->image('/action_buttons/img/delete.png', array('alt'=>'Delete','title'=>'Delete')), array('action' => 'delete', $id), array('escape'=>false), __('Are you sure you want to delete # %s?', $id));
+                $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt'=>'Delete','title'=>'Delete')), array('action' => 'delete', $id), array('escape'=>false), __('Are you sure you want to delete # %s?', $id));
             }else{
                 $html .= $this->Form->postLink(__('Delete'), array('action' => 'delete', $id), array('class'=>'btn btn-small btn-danger'), __('Are you sure you want to delete # %s?', $id));
             }
