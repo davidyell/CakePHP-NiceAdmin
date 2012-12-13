@@ -36,12 +36,32 @@ If you are already using `CakePlugin::loadAll()` you need not worry about adding
 ##Usage
 To use the helpers you will need to add them to your helpers array in your controller. As I tend to use my helpers everywhere, I usually use the `app/Controller/AppController.php`.  
 
+###StatusLights
+You can pass in an array of options into the StatusLights helper. The key of the array is the `status_id` then an array of the `label` to display and the `class` of the item output.  
 ```php
 public $helpers = array(
-		'NiceAdmin.Actions',
-		'NiceAdmin.StatusLights'
-		);
+    'NiceAdmin.StatusLights'=>array(
+        1 => array(
+            'label'=>'Live',
+            'class'=>'label label-success'
+        ),
+        2 => array(
+            'label'=>'Inactive',
+            'class'=>'label label-inverse'
+        ),
+        3 => array(
+            'label'=>'Deleted',
+            'class'=>'label'
+        )
+    ),
+);
 ```
+###ActionButtons
+```php
+public $helpers = array(
+	'NiceAdmin.Actions'
+);
+```  
 Once the helpers are loaded you can use them to make your admin index pages look nice and spangly.  
 [More on using Helpers in the CakePHP book](http://book.cakephp.org/2.0/en/views/helpers.html)  
 
@@ -70,11 +90,7 @@ This will convert a status link into a nice visually identifiable label.
 ![Table row](http://i.imgur.com/2ZrVo.png)
 
 ##Further development
-###ActionButtons
-* Allow *ActionButtons* to generate a configured number of buttons, or to exclude.  
-
-###StatusLights
-* Make the ids in *StatusLights* configurable, rather than static.
+Let me know what features you'd like or feel free to fork and create a pull request.  
 
 ##License
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
