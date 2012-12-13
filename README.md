@@ -13,18 +13,20 @@ Helper for replacing the 'Actions' cell contents in index views with buttons rat
 Helper for replacing a Status column in an index view with a nice coloured label based on the status_id.  
 
 ##Get the code
-Code is hosted on [Github.com](http://www.github.com/).
-
-###Download as a zip
-Simply hit at the top of the page and extract the archive into `app/Plugin/NiceAdmin`  
+###Composer & Packigist
+The plugin also has [Composer](http://getcomposer.org/) support.  
+Packigist entry: [https://packagist.org/packages/davidyell/nice-admin](https://packagist.org/packages/davidyell/nice-admin).
 
 ###Submodule
 You can add the plugin as a submodule to your project.  
 `git add submodule https://github.com/davidyell/CakePHP-NiceAdmin.git app/Plugin/NiceAdmin`  
 
 ###Clone
-You can create your own copy of the repo.
+You can create your own copy of the repo.  
 `git clone https://github.com/davidyell/CakePHP-NiceAdmin.git app/Plugin/NiceAdmin`  
+
+###Download as a zip
+Simply hit at the top of the page and extract the archive into `app/Plugin/NiceAdmin`  
 
 ##Installation
 The plugin will need to be loaded using `CakePlugin::load('NiceAdmin')` in your `app/Config/bootstrap.php`.  
