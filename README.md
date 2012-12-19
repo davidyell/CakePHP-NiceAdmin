@@ -11,6 +11,8 @@ This plugin is designed to make admin areas baked from [CakePHP](http://www.cake
 Helper for replacing the 'Actions' cell contents in index views with buttons rather than textual links. 
 ###StatusLights Helper
 Helper for replacing a Status column in an index view with a nice coloured label based on the status_id.  
+###Boolean Helper
+This will change boolean display fields into ticks (&#10004;) and crosses (&#10008;) rather than 1/0.
 
 ##Get the code
 ###Composer & Packigist
@@ -36,7 +38,8 @@ If you are already using `CakePlugin::loadAll()` you need not worry about adding
 ##Usage
 To use the helpers you will need to add them to your helpers array in your controller. As I tend to use my helpers everywhere, I usually use the `app/Controller/AppController.php`.  
 
-###StatusLights
+------
+###Loading StatusLights Helper
 You can pass in an array of options into the StatusLights helper. The key of the array is the `status_id` then an array of the `label` to display and the `class` of the item output.  
 ```php
 public $helpers = array(
@@ -57,14 +60,24 @@ public $helpers = array(
 );
 ```  
 The example here replicates the default settings in the helper. So if you are happy with the defaults, you don't need to pass these options in.  
-###ActionButtons
+
+###StatusLights Helper
+This will convert a status link into a nice visually identifiable label.   
+
+```
+<td>
+	<?php echo $this->StatusLights->status($var['Foo']['id']) ?>
+</td>
+```
+-----
+
+### Loading ActionButtons Helper
 ```php
 public $helpers = array(
 	'NiceAdmin.Actions'
 );
 ```  
 Once the helpers are loaded you can use them to make your admin index pages look nice and spangly.  
-[More on using Helpers in the CakePHP book](http://book.cakephp.org/2.0/en/views/helpers.html)  
 
 ###ActionButtons Helper
 You can output either buttons or icons depending on which you need. The helper will, by default, output all three links as buttons.  
@@ -75,20 +88,38 @@ Passing in an array of buttons you want to ouput as `v`,`e` and/or `d`. For 'Vie
 </td>
 ```  
 
-###StatusLights Helper
-This will convert a status link into a nice visually identifiable label.   
+-----
 
+### Loading Boolean Helper
+Similar to the StatusLights helper you can pass in an array of options to customise the display of the output.  
+```php
+public $helpers = array(
+    'NiceAdmin.Boolean'=>array(
+        1 => array( // true
+            'class'=>'badge badge-success',
+            'display'=>'&#10004;'
+        ),
+        0 => array( // false
+            'class'=>'badge badge-important',
+            'display'=>'&#10008;'
+        )
+    )
+)
+```  
+### Boolean Helper
 ```
-<td>
-	<?php echo $this->StatusLights->status($var['Foo']['id']) ?>
-</td>
+<?php echo $this->Boolean->display(1); ?>
 ```
+
+-----
 
 ##What's it look like?
 ![Table row](http://i.imgur.com/2ZrVo.png)
 
 ##Further development
 Let me know what features you'd like or feel free to fork and create a pull request.  
+
+* Update to plugins for CakePHP v2.3 - which introduces settings merging.
 
 ##License
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
