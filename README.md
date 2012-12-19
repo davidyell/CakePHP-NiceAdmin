@@ -3,7 +3,7 @@
 This plugin is designed to make admin areas baked from [CakePHP](http://www.cakephp.org/) look a little nicer and be easier to use and understand.  
 
 ##Requirements
-* CakePHP 2.x
+* CakePHP 2.2.x
 * TwitterBootstrap (optional - just for styling)
 
 ##What do you get in the box?  

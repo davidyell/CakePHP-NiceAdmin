@@ -1,0 +1,28 @@
+/* 
+    Document   : pagination
+    Created on : Dec 19, 2012, 2:35:45 PM
+    Author     : David Yell
+    Description:
+        Basic styles for the CakePHP pagination
+*/
+
+.paging span {
+  display: block;
+  padding: 7px 13px;
+  float: left;
+  border-style: solid;
+  border-color: #ccc;
+  border-width: 1px 1px 1px 0;
+}
+.paging span a {
+  display: block;
+}
+.paging span:first-child {
+  border-left-width: 1px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.paging span:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
