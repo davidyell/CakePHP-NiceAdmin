@@ -2,7 +2,7 @@
 /**
  * StatusLightsHelper is designed to swap out regular Status text with a nicer TwitterBootstrap compatible label
  *
- * @author david
+ * @author David Yell
  */
 App::uses('AppHelper','View/Helper');
 
@@ -18,7 +18,7 @@ class StatusLightsHelper extends AppHelper{
  * Settings for the helper. Consists of id => array(label, class). Id of the item, label to be displayed, and the class to use
  * @var array
  */
-    public $settings = array(
+    private $settings = array(
         1 => array(
             'label'=>'Live',
             'class'=>'label label-success'
@@ -39,9 +39,11 @@ class StatusLightsHelper extends AppHelper{
  * @param array $settings
  */
     public function __construct(View $view, $settings = array()){
-        parent::__construct($view);
+        parent::__construct($view, $settings);
 
-        $this->settings = $settings;
+        if(!empty($settings)){
+            $this->settings = $settings;
+        }
     }
 
 /**
