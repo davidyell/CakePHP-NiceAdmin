@@ -114,7 +114,7 @@ public $helpers = array(
 -----
 
 ##What's it look like?
-![Table row](http://i.imgur.com/2ZrVo.png)
+![Table row](http://i.imgur.com/xZSy8.png)
 
 ##Further development
 Let me know what features you'd like or feel free to fork and create a pull request.  
