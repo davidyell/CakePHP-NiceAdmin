@@ -5,7 +5,9 @@
     Description:
         Basic styles for the CakePHP pagination
 */
-
+.paging{
+    height: 36px;
+}
 .paging span {
   display: block;
   padding: 7px 13px;
