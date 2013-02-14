@@ -23,16 +23,16 @@ class ActionsHelper extends AppHelper {
     public function actions($id, $options = array('v', 'e', 'd'), $controller = '', $type = 'buttons') {
         
         $html = '';
-        
-        // Build the url
-        if(isset($controller) && !empty($controller)){
-            $url = array('controller' => $controller, 'action' => 'view', $id);
-        }else{
-            $url = array('action' => 'view', $id);
-        }
 
         // View button
         if (in_array('v', $options)) {
+            // Build the url
+            if(isset($controller) && !empty($controller)){
+                $url = array('controller' => $controller, 'action' => 'view', $id);
+            }else{
+                $url = array('action' => 'view', $id);
+            }
+            
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/view.png', array('url' => $url, 'alt' => 'View', 'title' => 'View'));
             } else {
@@ -42,6 +42,13 @@ class ActionsHelper extends AppHelper {
 
         // Edit button
         if (in_array('e', $options)) {
+            // Build the url
+            if(isset($controller) && !empty($controller)){
+                $url = array('controller' => $controller, 'action' => 'edit', $id);
+            }else{
+                $url = array('action' => 'edit', $id);
+            }
+            
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/edit.png', array('url' => $url, 'alt' => 'Edit', 'title' => 'Edit'));
             } else {
@@ -51,6 +58,13 @@ class ActionsHelper extends AppHelper {
 
         // Delete button
         if (in_array('d', $options)) {
+            // Build the url
+            if(isset($controller) && !empty($controller)){
+                $url = array('controller' => $controller, 'action' => 'delete', $id);
+            }else{
+                $url = array('action' => 'delete', $id);
+            }
+            
             if ($type == 'icons') {
                 $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt' => 'Delete', 'title' => 'Delete')), $url, array('escape' => false), __('Are you sure you want to delete # %s?', $id));
             } else {
