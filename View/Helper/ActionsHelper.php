@@ -25,7 +25,7 @@ class ActionsHelper extends AppHelper {
 
         // View button
         if (in_array('v', $options)) {
-            $url = $this->buildUrl($controller, $recordId);
+            $url = $this->buildUrl($controller, 'view', $recordId);
             
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/view.png', array('url' => $url, 'alt' => 'View', 'title' => 'View'));
@@ -36,7 +36,7 @@ class ActionsHelper extends AppHelper {
 
         // Edit button
         if (in_array('e', $options)) {
-            $url = $this->buildUrl($controller, $recordId);
+            $url = $this->buildUrl($controller, 'edit', $recordId);
             
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/edit.png', array('url' => $url, 'alt' => 'Edit', 'title' => 'Edit'));
@@ -47,7 +47,7 @@ class ActionsHelper extends AppHelper {
 
         // Delete button
         if (in_array('d', $options)) {
-            $url = $this->buildUrl($controller, $recordId);
+            $url = $this->buildUrl($controller, 'delete', $recordId);
             
             if ($type == 'icons') {
                 $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt' => 'Delete', 'title' => 'Delete')), $url, array('escape' => false), __('Are you sure you want to delete # %s?', $recordId));
@@ -66,11 +66,11 @@ class ActionsHelper extends AppHelper {
  * @param string Controller to use in url
  * @return array Cake url array
  */
-    private function buildUrl($controller, $recordId) {
+    private function buildUrl($controller, $action, $recordId) {
         if(isset($controller) && !empty($controller)){
-            $url = array('controller' => $controller, 'action' => 'delete', $recordId);
+            $url = array('controller' => $controller, 'action' => $action, $recordId);
         }else{
-            $url = array('action' => 'delete', $recordId);
+            $url = array('action' => $action, $recordId);
         }
         
         return $url;
