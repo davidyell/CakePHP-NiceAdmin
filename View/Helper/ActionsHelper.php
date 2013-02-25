@@ -1,9 +1,8 @@
 <?php
-
 /**
  * Helper to replace the actions cell links in the admin baked index pages.
  *
- * @author David Yell
+ * @author David Yell (neon1024@gmail.com)
  */
 class ActionsHelper extends AppHelper {
 
@@ -20,18 +19,13 @@ class ActionsHelper extends AppHelper {
  * @param string $type 'buttons' or 'icons' The type of links to generate
  * @return type
  */
-    public function actions($id, $options = array('v', 'e', 'd'), $controller = '', $type = 'buttons') {
+    public function actions($recordId, $options = array('v', 'e', 'd'), $controller = '', $type = 'buttons') {
         
         $html = '';
 
         // View button
         if (in_array('v', $options)) {
-            // Build the url
-            if(isset($controller) && !empty($controller)){
-                $url = array('controller' => $controller, 'action' => 'view', $id);
-            }else{
-                $url = array('action' => 'view', $id);
-            }
+            $url = $this->buildUrl($controller, $recordId);
             
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/view.png', array('url' => $url, 'alt' => 'View', 'title' => 'View'));
@@ -42,12 +36,7 @@ class ActionsHelper extends AppHelper {
 
         // Edit button
         if (in_array('e', $options)) {
-            // Build the url
-            if(isset($controller) && !empty($controller)){
-                $url = array('controller' => $controller, 'action' => 'edit', $id);
-            }else{
-                $url = array('action' => 'edit', $id);
-            }
+            $url = $this->buildUrl($controller, $recordId);
             
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/edit.png', array('url' => $url, 'alt' => 'Edit', 'title' => 'Edit'));
@@ -58,21 +47,33 @@ class ActionsHelper extends AppHelper {
 
         // Delete button
         if (in_array('d', $options)) {
-            // Build the url
-            if(isset($controller) && !empty($controller)){
-                $url = array('controller' => $controller, 'action' => 'delete', $id);
-            }else{
-                $url = array('action' => 'delete', $id);
-            }
+            $url = $this->buildUrl($controller, $recordId);
             
             if ($type == 'icons') {
-                $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt' => 'Delete', 'title' => 'Delete')), $url, array('escape' => false), __('Are you sure you want to delete # %s?', $id));
+                $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt' => 'Delete', 'title' => 'Delete')), $url, array('escape' => false), __('Are you sure you want to delete # %s?', $recordId));
             } else {
-                $html .= $this->Form->postLink(__('Delete'), $url, array('class' => 'btn btn-small btn-danger'), __('Are you sure you want to delete # %s?', $id));
+                $html .= $this->Form->postLink(__('Delete'), $url, array('class' => 'btn btn-small btn-danger'), __('Are you sure you want to delete # %s?', $recordId));
             }
         }
 
         return $html;
+    }
+    
+/**
+ * Take a controller and build a url array string
+ * 
+ * @param int The id of the record
+ * @param string Controller to use in url
+ * @return array Cake url array
+ */
+    private function buildUrl($controller, $recordId) {
+        if(isset($controller) && !empty($controller)){
+            $url = array('controller' => $controller, 'action' => 'delete', $recordId);
+        }else{
+            $url = array('action' => 'delete', $recordId);
+        }
+        
+        return $url;
     }
 
 }
