@@ -81,10 +81,10 @@ Once the helpers are loaded you can use them to make your admin index pages look
 
 ###ActionButtons Helper
 You can output either buttons or icons depending on which you need. The helper will, by default, output all three links as buttons.  
-Passing in an array of buttons you want to ouput as `v`,`e` and/or `d`. For 'View', 'Edit', and 'Delete'. The last option is either `icons` or `buttons`.  
+Passing in an array of buttons you want to ouput as `v`,`e` and/or `d`. For 'View', 'Edit', and 'Delete'. Then you'll need to pass in the controller. The last option is either `icons` or `buttons`.  
 ```
 <td class="actions">
-	<?php echo $this->Actions->actions($var['Foo']['id'], array('e','d'), 'icons');?>
+	<?php echo $this->Actions->actions($var['Foo']['id'], array('e','d'), 'myController', 'icons');?>
 </td>
 ```  
 
