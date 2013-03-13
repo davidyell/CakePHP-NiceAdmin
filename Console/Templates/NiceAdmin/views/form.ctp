@@ -21,6 +21,7 @@
 	</fieldset>
 <?php
 	echo "<?php echo \$this->Form->button('Save', array('type' => 'submit', 'class' => 'btn btn-success')); ?>\n";
+	echo "<?php echo \$this->Html->link('Cancel', array('action' => 'index'), array('class' => 'btn')); ?>\n";
 	echo "<?php echo \$this->Form->end(); ?>\n";
 ?>
 </div>

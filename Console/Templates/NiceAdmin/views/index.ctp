@@ -1,5 +1,6 @@
 <div class="<?php echo $pluralVar; ?> index">
 	<h2><?php echo "<?php echo __('{$pluralHumanName}'); ?>"; ?></h2>
+    <?php echo "<?php echo \$this->Html->link('New', array('action'=>'add'), array('title'=>'Add new','class'=>'btn add-button'));?>";?>
 	<table cellpadding="0" cellspacing="0" class="table table-bordered table-striped">
 	<tr>
 	<?php foreach ($fields as $field):
