@@ -7,7 +7,7 @@
 */
 .paging{
     height: 36px;
-    margin: 5px 0 5px;
+    margin: 5px 0;
 }
 .paging span {
   display: block;
