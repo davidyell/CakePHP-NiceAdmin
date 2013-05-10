@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : pagination
     Created on : Dec 19, 2012, 2:35:45 PM
     Author     : David Yell
@@ -7,6 +7,7 @@
 */
 .paging{
     height: 36px;
+    margin: 5px 0 5px;
 }
 .paging span {
   display: block;
