@@ -30,7 +30,7 @@ class ActionsHelper extends AppHelper {
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/view.png', array('url' => $url, 'alt' => 'View', 'title' => 'View'));
             } else {
-                $html .= $this->Html->link(__('View'), $url, array('class' => 'btn btn-small'));
+                $html .= $this->Html->link(__('View'), $url, array('class' => 'btn btn-sma btn-small'));
             }
         }
 
@@ -41,7 +41,7 @@ class ActionsHelper extends AppHelper {
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/edit.png', array('url' => $url, 'alt' => 'Edit', 'title' => 'Edit'));
             } else {
-                $html .= $this->Html->link(__('Edit'), $url, array('class' => 'btn btn-small'));
+                $html .= $this->Html->link(__('Edit'), $url, array('class' => 'btn btn-sm btn-small'));
             }
         }
 
@@ -52,7 +52,7 @@ class ActionsHelper extends AppHelper {
             if ($type == 'icons') {
                 $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt' => 'Delete', 'title' => 'Delete')), $url, array('escape' => false), __('Are you sure you want to delete # %s?', $recordId));
             } else {
-                $html .= $this->Form->postLink(__('Delete'), $url, array('class' => 'btn btn-small btn-danger'), __('Are you sure you want to delete # %s?', $recordId));
+                $html .= $this->Form->postLink(__('Delete'), $url, array('class' => 'btn btn-sm btn-small btn-danger'), __('Are you sure you want to delete # %s?', $recordId));
             }
         }
 
