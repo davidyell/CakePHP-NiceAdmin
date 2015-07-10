@@ -31,7 +31,7 @@ class ActionsHelper extends AppHelper {
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/view.png', array('url' => $url, 'alt' => 'View', 'title' => 'View'));
             } else {
-                $html .= $this->Html->link(__('View'), $url, array('class' => 'btn btn-small'));
+                $html .= $this->Html->link(__('View'), $url, array('class' => 'btn btn-sma btn-small'));
             }
         }
 
@@ -42,7 +42,7 @@ class ActionsHelper extends AppHelper {
             if ($type == 'icons') {
                 $html .= $this->Html->image('/nice_admin/img/edit.png', array('url' => $url, 'alt' => 'Edit', 'title' => 'Edit'));
             } else {
-                $html .= $this->Html->link(__('Edit'), $url, array('class' => 'btn btn-small'));
+                $html .= $this->Html->link(__('Edit'), $url, array('class' => 'btn btn-sm btn-small'));
             }
         }
 
