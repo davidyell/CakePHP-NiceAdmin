@@ -17,9 +17,10 @@ class ActionsHelper extends AppHelper {
  * @param int $id The id of the item
  * @param array $options array of v, e and/or d representing which button(s) to output
  * @param string $type 'buttons' or 'icons' The type of links to generate
- * @return type
+ * @param bool $inForm Are the links inside another form?
+ * @return string
  */
-    public function actions($recordId, $options = array('v', 'e', 'd'), $controller = '', $type = 'buttons') {
+    public function actions($recordId, $options = array('v', 'e', 'd'), $controller = '', $type = 'buttons', $inForm = false) {
         
         $html = '';
 
@@ -48,11 +49,15 @@ class ActionsHelper extends AppHelper {
         // Delete button
         if (in_array('d', $options)) {
             $url = $this->buildUrl($controller, 'delete', $recordId);
-            
-            if ($type == 'icons') {
-                $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt' => 'Delete', 'title' => 'Delete')), $url, array('escape' => false), __('Are you sure you want to delete # %s?', $recordId));
+
+            if (!$inForm) {
+                if ($type == 'icons') {
+                    $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt' => 'Delete', 'title' => 'Delete')), $url, array('escape' => false), __('Are you sure you want to delete # %s?', $recordId));
+                } else {
+                    $html .= $this->Form->postLink(__('Delete'), $url, array('class' => 'btn btn-sm btn-small btn-danger'), __('Are you sure you want to delete # %s?', $recordId));
+                }
             } else {
-                $html .= $this->Form->postLink(__('Delete'), $url, array('class' => 'btn btn-small btn-danger'), __('Are you sure you want to delete # %s?', $recordId));
+                $html .= $this->Html->link(__('Delete'), $url, ['class' => 'btn btn-sm btn-small btn-danger', 'onclick' => 'return confirm("Are you sure you want to delete?")']);
             }
         }
 
@@ -67,10 +72,10 @@ class ActionsHelper extends AppHelper {
  * @return array Cake url array
  */
     private function buildUrl($controller, $action, $recordId) {
-        if(isset($controller) && !empty($controller)){
-            $url = array('controller' => $controller, 'action' => $action, $recordId);
-        }else{
-            $url = array('action' => $action, $recordId);
+        if (!empty($controller)) {
+            $url = ['controller' => $controller, 'action' => $action, $recordId];
+        } else {
+            $url = ['action' => $action, $recordId];
         }
         
         return $url;
