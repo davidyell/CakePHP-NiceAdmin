@@ -4,22 +4,30 @@
  *
  * @author David Yell (neon1024@gmail.com)
  */
-class ActionsHelper extends AppHelper {
+namespace NiceAdmin\View\Helper;
 
-/**
- * Include some core system helpers so we can output
- * @var array
- */
-    public $helpers = array('Html', 'Form');
+use Cake\View\Helper;
 
-/**
- * Output the links
- * @param int $id The id of the item
- * @param array $options array of v, e and/or d representing which button(s) to output
- * @param string $type 'buttons' or 'icons' The type of links to generate
- * @param bool $inForm Are the links inside another form?
- * @return string
- */
+class ActionsHelper extends Helper {
+
+    /**
+     * Include some core system helpers so we can output
+     *
+     * @var array
+     */
+    public $helpers = ['Html', 'Form'];
+
+    /**
+     * Output the links
+     *
+     * @param int $recordId The id of the record
+     * @param array $options array of v, e and/or d representing which button(s) to output
+     * @param string $controller
+     * @param string $type 'buttons' or 'icons' The type of links to generate
+     * @param bool $inForm Are the links inside another form?
+     *
+     * @return string
+     */
     public function actions($recordId, $options = array('v', 'e', 'd'), $controller = '', $type = 'buttons', $inForm = false) {
         
         $html = '';
@@ -64,13 +72,15 @@ class ActionsHelper extends AppHelper {
         return $html;
     }
     
-/**
- * Take a controller and build a url array string
- * 
- * @param int The id of the record
- * @param string Controller to use in url
- * @return array Cake url array
- */
+    /**
+     * Take a controller and build a url array string
+     *
+     * @param string $controller The name of the controller to use in the url
+     * @param string $action The name of the url action
+     * @param int $recordId The id of the item
+     *
+     * @return array Cake url array
+     */
     private function buildUrl($controller, $action, $recordId) {
         if (!empty($controller)) {
             $url = ['controller' => $controller, 'action' => $action, $recordId];

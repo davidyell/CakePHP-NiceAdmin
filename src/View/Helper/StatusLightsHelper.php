@@ -5,57 +5,49 @@
  *
  * @author David Yell
  */
-App::uses('AppHelper', 'View/Helper');
+namespace NiceAdmin\View\Helper;
 
-class StatusLightsHelper extends AppHelper {
+use Cake\View\Helper;
 
-/**
- * Include the helpers we'll need to create our output
- * @var array
- */
-    public $helpers = array('Html');
+class StatusLightsHelper extends Helper {
 
-/**
- * Settings for the helper. Consists of id => array(label, class). Id of the item, label to be displayed, and the class to use
- * @var array
- */
-    public $settings = array(
-        1 => array(
+    /**
+     * Include the helpers we'll need to create our output
+     *
+     * @var array
+     */
+    public $helpers = ['Html'];
+
+    /**
+     * Settings for the helper. Consists of id => array(label, class). Id of the item, label to be displayed,
+     * and the class to use
+     *
+     * @var array
+     */
+    protected $_defaultConfig = [
+        1 => [
             'label' => 'Live',
             'class' => 'label label-success'
-        ),
-        2 => array(
+        ],
+        2 => [
             'label' => 'Inactive',
             'class' => 'label label-inverse'
-        ),
-        3 => array(
+        ],
+        3 => [
             'label' => 'Deleted',
             'class' => 'label'
-        )
-    );
+        ]
+    ];
 
-/**
- * Construct the helper and assign the passed settings
- * @param View $view
- * @param array $settings
- */
-    public function __construct(View $view, $settings = array()) {
-        parent::__construct($view, $settings);
-
-        if (!empty($settings)) {
-            $this->settings = $settings;
-        }
-    }
-
-/**
- * Will intepret a status and return a matching label
- * @param int $id The status_id
- * @return string Html label
- */
+    /**
+     * Will intepret a status and return a matching label
+     *
+     * @param int $id The status_id
+     *
+     * @return string Html label
+     */
     public function status($id) {
         return $this->Html->tag('span', $this->settings[$id]['label'], array('class' => $this->settings[$id]['class']));
     }
 
 }
-
-?>
