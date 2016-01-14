@@ -4,6 +4,7 @@
  *
  * @author David Yell (neon1024@gmail.com)
  */
+
 namespace NiceAdmin\View\Helper;
 
 use Cake\View\Helper;
