@@ -24,5 +24,8 @@
     "psr-4": {
       "NiceAdmin\\": "src"
     }
+  },
+  "suggest": {
+    "twbs/bootstrap": "Twitter Bootstrap front-end framework, for styles and layout."
   }
 }
