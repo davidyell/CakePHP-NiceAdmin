@@ -8,7 +8,8 @@ namespace NiceAdmin\View\Helper;
 
 use Cake\View\Helper;
 
-class ActionsHelper extends Helper {
+class ActionsHelper extends Helper
+{
 
     /**
      * Include some core system helpers so we can output
@@ -22,14 +23,14 @@ class ActionsHelper extends Helper {
      *
      * @param int $recordId The id of the record
      * @param array $options array of v, e and/or d representing which button(s) to output
-     * @param string $controller
+     * @param string $controller The name of the controller
      * @param string $type 'buttons' or 'icons' The type of links to generate
      * @param bool $inForm Are the links inside another form?
      *
      * @return string
      */
-    public function actions($recordId, $options = array('v', 'e', 'd'), $controller = '', $type = 'buttons', $inForm = false) {
-        
+    public function actions($recordId, $options = ['v', 'e', 'd'], $controller = '', $type = 'buttons', $inForm = false)
+    {
         $html = '';
 
         // View button
@@ -37,9 +38,9 @@ class ActionsHelper extends Helper {
             $url = $this->buildUrl($controller, 'view', $recordId);
             
             if ($type == 'icons') {
-                $html .= $this->Html->image('/nice_admin/img/view.png', array('url' => $url, 'alt' => 'View', 'title' => 'View'));
+                $html .= $this->Html->image('/nice_admin/img/view.png', ['url' => $url, 'alt' => 'View', 'title' => 'View']);
             } else {
-                $html .= $this->Html->link(__('View'), $url, array('class' => 'btn btn-sma btn-small'));
+                $html .= $this->Html->link(__('View'), $url, ['class' => 'btn btn-sma btn-small']);
             }
         }
 
@@ -48,9 +49,9 @@ class ActionsHelper extends Helper {
             $url = $this->buildUrl($controller, 'edit', $recordId);
             
             if ($type == 'icons') {
-                $html .= $this->Html->image('/nice_admin/img/edit.png', array('url' => $url, 'alt' => 'Edit', 'title' => 'Edit'));
+                $html .= $this->Html->image('/nice_admin/img/edit.png', ['url' => $url, 'alt' => 'Edit', 'title' => 'Edit']);
             } else {
-                $html .= $this->Html->link(__('Edit'), $url, array('class' => 'btn btn-sm btn-small'));
+                $html .= $this->Html->link(__('Edit'), $url, ['class' => 'btn btn-sm btn-small']);
             }
         }
 
@@ -60,9 +61,9 @@ class ActionsHelper extends Helper {
 
             if (!$inForm) {
                 if ($type == 'icons') {
-                    $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', array('alt' => 'Delete', 'title' => 'Delete')), $url, array('escape' => false), __('Are you sure you want to delete # %s?', $recordId));
+                    $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', ['alt' => 'Delete', 'title' => 'Delete']), $url, ['escape' => false], __('Are you sure you want to delete # %s?', $recordId));
                 } else {
-                    $html .= $this->Form->postLink(__('Delete'), $url, array('class' => 'btn btn-sm btn-small btn-danger'), __('Are you sure you want to delete # %s?', $recordId));
+                    $html .= $this->Form->postLink(__('Delete'), $url, ['class' => 'btn btn-sm btn-small btn-danger'], __('Are you sure you want to delete # %s?', $recordId));
                 }
             } else {
                 $html .= $this->Html->link(__('Delete'), $url, ['class' => 'btn btn-sm btn-small btn-danger', 'onclick' => 'return confirm("Are you sure you want to delete?")']);
@@ -81,7 +82,8 @@ class ActionsHelper extends Helper {
      *
      * @return array Cake url array
      */
-    private function buildUrl($controller, $action, $recordId) {
+    protected function buildUrl($controller, $action, $recordId)
+    {
         if (!empty($controller)) {
             $url = ['controller' => $controller, 'action' => $action, $recordId];
         } else {
@@ -90,5 +92,4 @@ class ActionsHelper extends Helper {
         
         return $url;
     }
-
 }

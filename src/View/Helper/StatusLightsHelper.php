@@ -9,7 +9,8 @@ namespace NiceAdmin\View\Helper;
 
 use Cake\View\Helper;
 
-class StatusLightsHelper extends Helper {
+class StatusLightsHelper extends Helper
+{
 
     /**
      * Include the helpers we'll need to create our output
@@ -46,8 +47,8 @@ class StatusLightsHelper extends Helper {
      *
      * @return string Html label
      */
-    public function status($id) {
-        return $this->Html->tag('span', $this->settings[$id]['label'], array('class' => $this->settings[$id]['class']));
+    public function status($id)
+    {
+        return $this->Html->tag('span', $this->settings[$id]['label'], ['class' => $this->settings[$id]['class']]);
     }
-
 }

@@ -9,7 +9,8 @@ namespace NiceAdmin\View\Helper;
 
 use Cake\View\Helper;
 
-class BooleanHelper extends Helper {
+class BooleanHelper extends Helper
+{
 
     /**
      * Include the helpers that we need to create output
@@ -41,11 +42,12 @@ class BooleanHelper extends Helper {
      *
      * @return string Returns a formatted HTML tag
      */
-    public function display($value) {
+    public function display($value)
+    {
         if ($value === true || $value == 1) {
-            $return = $this->Html->tag('span', $this->settings[1]['display'], array('class' => $this->settings[1]['class']));
+            $return = $this->Html->tag('span', $this->settings[1]['display'], ['class' => $this->settings[1]['class']]);
         } else {
-            $return = $this->Html->tag('span', $this->settings[0]['display'], array('class' => $this->settings[0]['class']));
+            $return = $this->Html->tag('span', $this->settings[0]['display'], ['class' => $this->settings[0]['class']]);
         }
 
         return $return;

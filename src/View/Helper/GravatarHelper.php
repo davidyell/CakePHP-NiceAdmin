@@ -2,7 +2,7 @@
 
 /**
  * @package GravatarHelper.php
- * 
+ *
  * @author David Yell <neon1024@gmail.com>
  *
  */
@@ -11,7 +11,8 @@ namespace NiceAdmin\View\Helper;
 
 use Cake\View\Helper;
 
-class GravatarHelper extends Helper {
+class GravatarHelper extends Helper
+{
 
     /**
      * Generate a gravatar avatar image
@@ -27,5 +28,4 @@ class GravatarHelper extends Helper {
         $hash = md5(strtolower(trim($email)));
         return "<img class='$class' src='http://www.gravatar.com/avatar/$hash?s=$size&d=mm'>";
     }
-
 }
