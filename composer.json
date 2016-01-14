@@ -1,19 +1,28 @@
 {
-    "name": "davidyell/nice-admin",
-    "type": "cakephp-plugin",
-    "description": "A roll up plugin of various bits to improve the look of admin areas index view.",
-    "homepage": "https://github.com/davidyell/CakePHP-NiceAdmin",
-    "license": "GPL-3.0",
-    "authors": 
-    [
-        {
-            "name": "David Yell",
-            "email": "neon1024@gmail.com",
-            "homepage": "http://neon1024.wordpress.com/",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "composer/installers": "*"
+  "name": "davidyell/nice-admin",
+  "type": "cakephp-plugin",
+  "description": "A roll up plugin of various bits to improve the look of admin areas index view.",
+  "homepage": "https://github.com/davidyell/CakePHP-NiceAdmin",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "David Yell",
+      "email": "neon1024@gmail.com",
+      "homepage": "http://neon1024.wordpress.com/",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": ">=5.4.16",
+    "cakephp/cakephp": "~3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8",
+    "cakephp/cakephp-codesniffer": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "NiceAdmin\\": "src"
+    }
+  }
 }
