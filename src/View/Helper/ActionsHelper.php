@@ -62,9 +62,9 @@ class ActionsHelper extends Helper
 
             if (!$inForm) {
                 if ($type == 'icons') {
-                    $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', ['alt' => 'Delete', 'title' => 'Delete']), $url, ['escape' => false], __('Are you sure you want to delete # %s?', $recordId));
+                    $html .= $this->Form->postLink($this->Html->image('/nice_admin/img/delete.png', ['alt' => 'Delete', 'title' => 'Delete']), $url, ['escape' => false, 'confirm' => 'Are you sure?']);
                 } else {
-                    $html .= $this->Form->postLink(__('Delete'), $url, ['class' => 'btn btn-sm btn-small btn-danger'], __('Are you sure you want to delete # %s?', $recordId));
+                    $html .= $this->Form->postLink(__('Delete'), $url, ['class' => 'btn btn-sm btn-small btn-danger', 'confirm' => 'Are you sure?']);
                 }
             } else {
                 $html .= $this->Html->link(__('Delete'), $url, ['class' => 'btn btn-sm btn-small btn-danger', 'onclick' => 'return confirm("Are you sure you want to delete?")']);
