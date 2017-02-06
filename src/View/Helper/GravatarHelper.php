@@ -26,6 +26,6 @@ class GravatarHelper extends Helper
     public function avatar($email, $size = 50, $class = 'user-avatar')
     {
         $hash = md5(strtolower(trim($email)));
-        return "<img class='$class' src='http://www.gravatar.com/avatar/$hash?s=$size&d=mm'>";
+        return "<img class='$class' src='//www.gravatar.com/avatar/$hash?s=$size&d=mm'>";
     }
 }
