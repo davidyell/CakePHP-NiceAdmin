@@ -25,10 +25,10 @@ The plugin will need to be loaded using `Plugin::load('NiceAdmin')` in your `/co
 To use the helpers you will need to add them to your helpers array in your `AppView`.
 
 ```php
-$this->loadHelper('NiceAdmin.StatusLights`, $options);
-$this->loadHelper('NiceAdmin.Actions`);
-$this->loadHelper('NiceAdmin.Gravatar`);
-$this->loadHelper('NiceAdmin.Boolean`);
+$this->loadHelper('NiceAdmin.StatusLights', $options);
+$this->loadHelper('NiceAdmin.Actions');
+$this->loadHelper('NiceAdmin.Gravatar');
+$this->loadHelper('NiceAdmin.Boolean');
 ```
 
 ------
