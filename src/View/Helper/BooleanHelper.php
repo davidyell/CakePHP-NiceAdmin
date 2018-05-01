@@ -45,9 +45,9 @@ class BooleanHelper extends Helper
     public function display($value)
     {
         if ($value === true || $value == 1) {
-            $return = $this->Html->tag('span', $this->getConfig()[1]['display'], ['class' => $this->getConfig()[1]['class']]);
+            $return = $this->Html->tag('span', $this->getConfig('1.display'), ['class' => $this->getConfig('1.class')]);
         } else {
-            $return = $this->Html->tag('span', $this->getConfig()[0]['display'], ['class' => $this->getConfig()[0]['class']]);
+            $return = $this->Html->tag('span', $this->getConfig('0.display'), ['class' => $this->getConfig('0.class')]);
         }
 
         return $return;

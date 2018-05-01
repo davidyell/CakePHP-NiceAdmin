@@ -49,6 +49,6 @@ class StatusLightsHelper extends Helper
      */
     public function status($id)
     {
-        return $this->Html->tag('span', $this->getConfig($id)['label'], ['class' => $this->getConfig($id)['class']]);
+        return $this->Html->tag('span', $this->getConfig($id . '.label'), ['class' => $this->getConfig($id . '.class')]);
     }
 }
